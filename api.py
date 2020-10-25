@@ -69,7 +69,8 @@ class arms_db(object):
 
         if self._endpoint != newendpt:
             self._endpoint = newendpt
-            old_params = {k: v for k, v in self.params if k in PARAMETERS[newendpt]}
+            old_params = {k: v for k, v in self.params.items()
+                          if k in PARAMETERS[newendpt]}
             self.params = PARAMETERS[newendpt]
             self.params.update(old_params)
 

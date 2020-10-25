@@ -1,8 +1,10 @@
 
 from datetime import datetime
 
-PARAMETERS = {"registers": {'low_year': str(min(arms_db.years)),
-                            'high_year': str(max(arms_db.years)),
+YEARS = list(range(1950, datetime.now().year+1))
+
+PARAMETERS = {"registers": {'low_year': str(min(YEARS)),
+                            'high_year': str(max(YEARS)),
                             'seller_country_code': '',
                             'buyer_country_code': '',
                             'armament_category_id': 'any',
@@ -10,17 +12,16 @@ PARAMETERS = {"registers": {'low_year': str(min(arms_db.years)),
                             'filetype': 'csv',
                             'include_open_deals': 'on',
                             'sum_deliveries': '',
-                            'Submit4': 'Download'}
-              "tiv":       {'low_year': str(min(arms_db.years)),
-                            'high_year': str(max(arms_db.years)),
+                            'Submit4': 'Download'},
+              "tiv":       {'low_year': str(min(YEARS)),
+                            'high_year': str(max(YEARS)),
                             'country_code': '',
                             'import_or_export': 'import',
                             'filetype': 'csv',
                             'summarize': 'country',
                             'Action': 'Download'}
+            }
 
-
-YEARS = list(range(1950, datetime.now().year+1))
 
 FILETYPES = ['rtf','csv','html','json']
 
