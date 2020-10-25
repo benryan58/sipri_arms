@@ -106,11 +106,23 @@ class arms_db(object):
         r = r.content.decode()
 
         if self.params['filetype'] == 'csv':
-            r = pd.read_csv(StringIO(r))
+            kw = {}
+
+            if self.endpoint == 'tiv':
+                # the TIV endpoint CSV returns some additional rows at the top
+                # and bottom that don't parse well into DataFrames, and 
+                # the 
+                r = "\n".join(r.content.decode().split("\n")[10:-3])
+                kw.update({'index_col': 0})
+
+            r = pd.read_csv(StringIO(r), **kw)
 
             if JSON:
                 self.params['filetype'] = 'json'
-                r.set_index('tidn', inplace=True)
+
+                if self.endpoint == 'registers':
+                    r.set_index('tidn', inplace=True)
+
                 r = r.to_dict('index')
 
                 for key in r:
