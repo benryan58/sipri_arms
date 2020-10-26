@@ -1,4 +1,4 @@
-# Unofficial SIPRI Arms Database API wrapper
+# Unofficial SIPRI Arms Transfers Database API wrapper
 To reiterate, I am not in any way affiliated with the Stockholm International Peace Research Institute, I have just created a Python wrapper for their <a href="https://www.sipri.org/databases/armstransfers">Arms Transfers Database</a> web interface for my own (and ideally others') convenience. 
 
 For any and all questions about the form or content of the data, please refer to SIPRI's <a href="https://www.sipri.org/databases/armstransfers/sources-and-methods">website</a>.
